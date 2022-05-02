@@ -4,7 +4,8 @@ def app
 node {
     // gitlab으로부터 소스 다운하는 stage
     stage('Checkout') {
-            checkout scm   
+        echo "---checkout---"
+        checkout scm   
     }
  
     // mvn 툴 선언하는 stage, 필자의 경우 maven 3.6.0을 사용중
@@ -26,7 +27,7 @@ node {
 
     //dockerfile기반 빌드하는 stage ,git소스 root에 dockerfile이 있어야한다
     stage('Build image'){   
-        sh "echo 'build hello-node image...'" 
+        echo "build hello-node image..."
         app = docker.build("maiworld/hello-node")
     }
 
