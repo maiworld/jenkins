@@ -9,7 +9,8 @@ pipeline{
         stage('Git'){
             steps{
                 script{
-                    git 'https://github.com/maiworld/jenkins.git'
+                    ehco 'stage git'
+                    git branch: 'main', changelog: false, credentialsId: 'dockerhub', poll: false, url: 'https://github.com/maiworld/jenkins'
                 }
             }
         }
