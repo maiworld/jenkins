@@ -6,6 +6,13 @@ pipeline{
   }
   agent any
     stages {
+        stage('Git'){
+            steps{
+                script{
+                    git 'https://github.com/maiworld/jenkins.git'
+                }
+            }
+        }
         stage('Build'){
             steps{
                 script{
